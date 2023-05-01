@@ -1,9 +1,10 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
+import './ContactForm.css';
 
 
 export class ContactForm  extends Component {
     state = {
-        contacts: [],
         name: '',
         number: '',
     };
@@ -66,3 +67,10 @@ return(
   );
   }
 }
+
+ContactForm.propTypes = {
+  name: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+  handleChange: PropTypes.func.isRequired,
+};

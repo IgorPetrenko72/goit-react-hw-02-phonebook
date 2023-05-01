@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { ContactForm  } from "./ContactForm"
+import { ContactForm  } from "./ContactForm/ContactForm"
 import { nanoid } from 'nanoid'
-import { ContactList } from "./ContactList";
-import { Filter } from "./Filter";
-import './Phonebook.css';
+import { ContactList } from "./Contactlist/ContactList";
+import { Filter } from "./Filter/Filter";
+import './ContactForm/ContactForm.css';
 
 export class App extends Component {
  state = {
@@ -14,8 +14,6 @@ export class App extends Component {
     {id: 'id-4', name: 'Annie Copeland', number: '227-91-26'},
   ],
   filter: '',
-  name: '',
-  number: ''
 }
   
    formSubmitHandler = ({ name, number }) => {
@@ -25,7 +23,8 @@ export class App extends Component {
       number,
      };
      
-    this.state.contacts.some(i => i.name === contact.name)
+     this.state.contacts.some(i => (i.name.toLowerCase() === contact.name.toLowerCase()) ||
+       (i.number === contact.number))
       ? alert(`${name} is already in contacts`)
       : this.setState(({ contacts }) => ({
           contacts: [contact, ...contacts],
