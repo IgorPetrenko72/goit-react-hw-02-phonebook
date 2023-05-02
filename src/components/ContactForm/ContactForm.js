@@ -69,8 +69,5 @@ return(
 }
 
 ContactForm.propTypes = {
-  name: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
-  handleSubmit: PropTypes.func.isRequired,
-  handleChange: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
 };
